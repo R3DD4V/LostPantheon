@@ -1,0 +1,40 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.Summon.summon": {
+			"animation_length": 1.0417,
+			"bones": {
+				"Option1": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"everything": {
+					"rotation": {
+						"0.0": [-170, 0, 0],
+						"0.25": [-165, 0, 0],
+						"0.9167": [-270, 0, 0]
+					},
+					"position": {
+						"0.0": [0, -26, 0],
+						"0.25": [0, 0, -8],
+						"0.5": [0, 14, -14],
+						"0.9167": [-0.5, -1, 3]
+					}
+				}
+			}
+		},
+		"animation.demonic_cooking_knife.idle": {
+			"loop": true,
+			"animation_length": 0.0418,
+			"bones": {
+				"every": {
+					"rotation": [90, 0, 0],
+					"position": {
+						"0.0": [-0.5, 0, 4],
+						"0.0417": [-0.5, 0, -4]
+					}
+				}
+			}
+		}
+	}
+}

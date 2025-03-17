@@ -1,0 +1,32 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    64,
+    64
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0.5,
+        -4,
+        1.75
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        87.5,
+        0
+      ],
+      "translation": [
+        0,
+        -20,
+        0
+      ]
+    }
+  },
+  "textures": {
+    "particle": "lost-pantheon:item/demonic_cooking_knife"
+  }
+}

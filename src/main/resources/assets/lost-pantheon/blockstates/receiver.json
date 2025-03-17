@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lost-pantheon:block/receiver", "uvlock": true },
+    "facing=east": { "model": "lost-pantheon:block/receiver", "y": 90,"uvlock": false },
+    "facing=south": { "model": "lost-pantheon:block/receiver", "y": 180,"uvlock": false },
+    "facing=west": { "model": "lost-pantheon:block/receiver", "y": 270,"uvlock": false }
+  }
+}
