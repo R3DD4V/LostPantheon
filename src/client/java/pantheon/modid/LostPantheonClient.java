@@ -1,8 +1,17 @@
 package pantheon.modid;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.player.PlayerEntity;
 import pantheon.modid.blocks.modBlocks;
 import pantheon.modid.items.modItems;
+import pantheon.modid.mobs.diansu_supervivens.holo.Diansu_Supervivens_Holo;
+import pantheon.modid.mobs.diansu_supervivens.holo.Diansu_Supervivens_Holo_Geo;
+import pantheon.modid.mobs.diansu_supervivens.holo.Diansu_Supervivens_Holo_Renderer;
+import pantheon.modid.mobs.modMobs;
+import software.bernie.geckolib.model.GeoModel;
 
 import static pantheon.modid.KeyBindings.registerClientTickEvent;
 
@@ -14,6 +23,10 @@ public class LostPantheonClient implements ClientModInitializer {
 		KeyBindings.InitializeKeyBindings();
 		registerClientTickEvent();
 		modBlocks.registerModBlocks();
+		modMobs.registerModMobs();
+
+		FabricDefaultAttributeRegistry.register(modMobs.DSH, Diansu_Supervivens_Holo.createDSHAttributes());
+		EntityRendererRegistry.INSTANCE.register(modMobs.DSH, Diansu_Supervivens_Holo_Renderer::new);
 	}
 
 

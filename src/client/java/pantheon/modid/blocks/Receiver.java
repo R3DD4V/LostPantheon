@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Properties;
 
 public class Receiver extends HorizontalFacingBlock {
@@ -92,10 +93,13 @@ public class Receiver extends HorizontalFacingBlock {
 
                 output.add(alphabet.get((int) outputNumbers.get(i) - 1));
 
+
             }
 
             super.onPlaced(world, pos, state, player, itemStack);
             player.sendMessage(Text.of(String.valueOf(output)));
+            player.isPushable();
+            player.isFallFlying();
         }
     }
 }
