@@ -17,10 +17,12 @@ public class modItems {
 
     public static final Item DemonicCookingKnife = registerItem("demonic_cooking_knife", new cookingKnife(new FabricItemSettings()));
     public static final Item NovaMercur = registerItem("nova_mercur", new ArmorItem(modArmorMaterials.MERCUR, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item NovaTank = registerItem("nova_tank", new ArmorItem(modArmorMaterials.NOVA_TANK, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
 
     private static void addItemsToTabs(FabricItemGroupEntries entries) {
         entries.add(DemonicCookingKnife);
         entries.add(NovaMercur);
+        entries.add(NovaTank);
     }
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(LostPantheon.MOD_ID, name), item);

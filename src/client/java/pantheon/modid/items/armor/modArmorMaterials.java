@@ -11,8 +11,8 @@ import pantheon.modid.LostPantheon;
 import java.util.function.Supplier;
 
 public enum modArmorMaterials implements ArmorMaterial {
-    MERCUR("nova_mercur", -1, new int[] {1, 20, 1, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2f, 0.1f, () -> Ingredient.ofItems(Items.DIAMOND))
-    ;
+    MERCUR("nova_mercur", -1, new int[] {1, 20, 1, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2f, 0.1f, () -> Ingredient.ofItems(Items.DIAMOND)),
+    NOVA_TANK("nova_tank", -1, new int[] {1, 20, 1, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2f, 0.1f, () ->  Ingredient.ofItems(Items.DIAMOND));
 
     private final String name;
     private final int durabilityMultiplier;

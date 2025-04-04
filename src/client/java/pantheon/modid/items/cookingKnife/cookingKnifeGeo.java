@@ -13,7 +13,8 @@ public class cookingKnifeGeo extends GeoModel<cookingKnife> {
     }
 
     @Override
-    public Identifier getTextureResource(cookingKnife cookingKnife) {
+    public Identifier
+    getTextureResource(cookingKnife cookingKnife) {
         return new Identifier(LostPantheon.MOD_ID, "textures/item/demonic_cooking_knife.png");
     }
 
@@ -21,4 +22,6 @@ public class cookingKnifeGeo extends GeoModel<cookingKnife> {
     public Identifier getAnimationResource(cookingKnife cookingKnife) {
         return new Identifier(LostPantheon.MOD_ID, "animations/item/demonic_cooking_knife.animation.json");
     }
+
+
 }
