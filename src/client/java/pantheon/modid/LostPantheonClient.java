@@ -7,14 +7,20 @@ import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistr
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import pantheon.modid.blocks.modBlocks;
 import pantheon.modid.items.modItems;
@@ -28,6 +34,7 @@ import pantheon.modid.effects.modEffects;
 import pantheon.modid.particles.modParticles;
 import pantheon.modid.mobs.virtus_hand.virtusHandRenderer;
 import pantheon.modid.particles.Shockwave;
+import pantheon.modid.items.book.*;
 
 import static pantheon.modid.KeyBindings.registerClientTickEvent;
 
@@ -51,6 +58,7 @@ public class LostPantheonClient implements ClientModInitializer {
 
 		ParticleFactoryRegistry.getInstance().register(modParticles.SHOCKWAVE, pantheon.modid.particles.Shockwave.Factory::new);
 	}
+
 
 
 

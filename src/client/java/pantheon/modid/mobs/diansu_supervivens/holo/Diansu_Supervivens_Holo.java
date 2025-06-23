@@ -31,6 +31,8 @@ import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import pantheon.modid.blocks.HologramGenerator;
+
 public class Diansu_Supervivens_Holo extends PathAwareEntity implements GeoEntity {
     public Diansu_Supervivens_Holo(EntityType<? extends PathAwareEntity> type, World world) {
         super(type, world);
@@ -94,6 +96,11 @@ public class Diansu_Supervivens_Holo extends PathAwareEntity implements GeoEntit
         if(world.getBlockState(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ())).getBlock() != modBlocks.HOLOGRAM_GENERATOR) {
             setPosition(new Vec3d(0, -64,0));
             kill();
+        }
+        else if(world.getBlockState(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ())).getBlock() == modBlocks.HOLOGRAM_GENERATOR) {
+            if(!world.getBlockState(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ())).get(HologramGenerator.active)) {
+                discard();
+            }
         }
         PlayerEntity playerEntity = world.getClosestPlayer((double)pos.getX() + (double)0.5F, (double)pos.getY() + (double)0.5F, (double)pos.getZ() + (double)0.5F, (double)5.0F, false);
         if (playerEntity != null) {

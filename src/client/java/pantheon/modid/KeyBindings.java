@@ -42,6 +42,8 @@ public class KeyBindings {
         MidAirMovement = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.LostPantheon.midAirMovement",InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_SPACE, "key.category.first.test"));
         Ability2 = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.LostPantheon.ability2", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_H, "key.category.first.test"));
     }
+
+
     public static void registerClientTickEvent() {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -140,6 +142,8 @@ public class KeyBindings {
                     }
 
                 }
+
+
 
         });
 

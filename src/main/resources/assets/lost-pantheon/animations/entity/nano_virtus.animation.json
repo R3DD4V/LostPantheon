@@ -290,6 +290,20 @@
 					}
 				}
 			}
+		},
+		"animation.nano_virtus.idle": {
+			"bones": {
+				"Head2": {
+					"rotation": {
+						"0.0": {
+							"vector": ["rotX", "rotY", 0]
+						},
+						"0.0417": {
+							"vector": ["rotX", "rotY", 0]
+						}
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

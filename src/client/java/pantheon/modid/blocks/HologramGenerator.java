@@ -4,6 +4,9 @@ import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Property;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -18,16 +21,20 @@ import pantheon.modid.mobs.modMobs;
 
 public class HologramGenerator extends TransparentBlock {
 
-    private Diansu_Supervivens_Holo hologram;
-    private boolean active = false;
+    private static Diansu_Supervivens_Holo hologram;
+    public static BooleanProperty active = BooleanProperty.of("active");
 
     protected HologramGenerator(AbstractBlock.Settings settings) {
         super(settings);
+        setDefaultState(getDefaultState().with(active, false));
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(active);
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity player, ItemStack itemStack) {
-        this.hologram = new Diansu_Supervivens_Holo(modMobs.DSH,world);
-        this.hologram.setPosition(new Vec3d(pos.toCenterPos().getX(), pos.getY()+1, pos.toCenterPos().getZ()));
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -36,22 +43,18 @@ public class HologramGenerator extends TransparentBlock {
                     world.getBlockState(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ())).getBlock() == modBlocks.RECEIVER ||
                     world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1)).getBlock() == modBlocks.RECEIVER ||
                     world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1)).getBlock() == modBlocks.RECEIVER) {
-                if (this.hologram == null)  {
-                    this.hologram = new Diansu_Supervivens_Holo(modMobs.DSH,world);
-                    this.hologram.setPosition(new Vec3d(pos.toCenterPos().getX(), pos.getY()+1, pos.toCenterPos().getZ()));
-                }
-                if(!active) {
-                   world.spawnEntity(this.hologram);
-                   active = true;
+                if(!state.get(active)) {
+                    hologram = new Diansu_Supervivens_Holo(modMobs.DSH,  world);
+                    hologram.setPosition(new Vec3d(pos.toCenterPos().getX(), pos.getY()+1, pos.toCenterPos().getZ()));
+                    player.sendMessage(Text.of(""+pos), false);
+
+                    world.spawnEntity(hologram);
+                    world.setBlockState(pos, state.with(active, true));
                 }
                 else {
-                    this.hologram.setPosition(new Vec3d(0, -64,0));
-                    this.hologram.kill();
-                    this.hologram = new Diansu_Supervivens_Holo(modMobs.DSH,world);
-                    this.hologram.setPosition(new Vec3d(pos.toCenterPos().getX(), pos.getY()+1, pos.toCenterPos().getZ()));
-                   active = false;
+                    world.setBlockState(pos, state.with(active, false));
                 }
-                player.sendMessage(Text.of("Test"), false);
+
             }
         }
 
